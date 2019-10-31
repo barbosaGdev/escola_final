@@ -11,6 +11,12 @@ class Escola extends Controller
         \App\Escola::registerEscola();
         return "SUCESSO";
     }
+
+    public function getEscola(){
+        $escolas = \App\Escola::getEscola();
+        return redirect("/schools", compact('escolas', $escolas));
+    }
+    
     
     public function deletarEscola(){
         \App\Escola::deletarEscola();

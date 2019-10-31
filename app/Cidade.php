@@ -12,7 +12,7 @@ class cidade extends Model
     public $timestamps = false;
 
     static function getCidades(){
-        return DB::select("select * from cidades order by id desc");
+        return DB::select("select * from cidades order by id desc"); //TAREFA 2 - ITEM f): Deixar Nilópolis como primeira opção
     }
 
     static function CadastrarCidade(){

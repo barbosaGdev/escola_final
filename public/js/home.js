@@ -14,6 +14,34 @@ $("#input-cpf-responsavel").mask("000.000.000-00");
 $("#input-residencial").mask("(00) 0000-0000");
 $("#input-celular").mask("(00) 00000-0000");
 $("#input-nis").mask("0000000000000000000000");
+$("#input-cep").mask("00000-000"); // TAREFA 2 - ITEM d): Máscara para CEP
+
+$("#input-cep").focusout(function() {
+    let cep = $('#input-cep').val();
+    cep = cep.replace("-", "");
+
+    var urlStr = "https://viacep.com.br/ws/" + cep + "/json/";
+
+
+    $.ajax({
+        url: urlStr,
+        type: "get",
+        dataType: "json",
+        sucess: function(data) {
+            console.log(data);
+
+            // $('#input-rua').val();
+            // $('#input-bairro').val();
+            // $('#input-cidade').val();
+            // $('#input-estado').val();
+
+        },
+        error: function(erro) {
+            console.log(erro);
+        }
+    })
+});
+
 
 function changeNis(nis) {
     if (nis == "yes") {
@@ -31,11 +59,13 @@ function changeDeficiencia(def) {
         document.querySelector("#input-deficiencia").setAttribute("required", "");
         document.querySelector("#anexoDef").removeAttribute("disabled");
         document.querySelector("#input-deficiencia").value = "";
+        document.querySelector(".div-escola-to-hide").style.display = 'none'; // TAREFA 2 - ITEM b): Problema com NEE resolvido, está ocultando caso seja deficiente
     } else {
         $('#anexoDef').val("");
         document.querySelector("#input-deficiencia").removeAttribute("disabled");
         document.querySelector("#anexoDef").setAttribute("disabled", "")
         document.querySelector("#input-deficiencia").value = "";
+        document.querySelector(".div-escola-to-hide").style.display = 'block'; // TAREFA 2 - ITEM c): Problema com NEE resolvido, caso não seja, exibe modalidades
     }
 }
 
@@ -158,7 +188,8 @@ function changeDateNascimento() {
 
             });
         }
-
+        // TAREFA 2 - ITEM a): Verifica se o aluno possui mais que dezoito anos, caso tenha, oculta as 3 modalidades e 
+        // fica apenas o EJA
         if (ano <= 2001) {
             document.querySelector(".option-1").style.display = 'none';
             document.querySelector(".option-2").style.display = 'none';

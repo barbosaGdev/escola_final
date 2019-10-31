@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/padrao.css">
     <link rel="stylesheet" href="/css/home.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.mask.min.js"></script>
     <title>Matricula facil</title>
 </head>
 
@@ -113,8 +115,7 @@
                 </div>
                 <div class="div-input-special-1">
                     <b><label class="label-special-1" for="input-bairro">CEP</label></b>
-                    <input name="cep" id="input-cep" type="text" class="input-special-1"
-                        placeholder="Cep">
+                    <input name="cep" id="input-cep" type="text" class="input-special-1" placeholder="CEP">
                 </div>
                 <div class="div-input-special-1">
                     <b><label class="label-special-1" for="input-cidade">Cidade em que Reside*</label></b>
@@ -163,10 +164,11 @@
                     <b><label class="label-special-1" for="input-bairro">Deficiência (NEE) ?</label></b>
                     <br>
                     <label class="label-radio" style="margin-left: 10%" for="defsim">SIM</label>
-                    <input value="1" checked type="radio" onchange="changeDeficiencia('yes')" name="deficiencia_radio"
+                    <input value="1" type="radio" onchange="changeDeficiencia('yes')" name="deficiencia_radio"
                         id="defsim">
                     <label class="label-radio" for="defnao">NÃO</label>
-                    <input value="2" type="radio" onchange="changeDeficiencia('no')" name="deficiencia_radio"
+                    <!-- TAREFA 2 - ITEM c): NEE iniciado com a opção 'Não' -->
+                    <input value="2" checked type="radio" onchange="changeDeficiencia('no')" name="deficiencia_radio"
                         id="defnao">
                     <input name="deficiencia" id="input-deficiencia" type="text" class="input-special-1"
                         placeholder="Qual ?">
@@ -207,7 +209,9 @@
                         <b><label class="label-special-1" for="input-bairro">1º Opção de Escola</label></b>
                         <br>
                         <select class="select-special-1" name="escola1" required id="opcaoescola1">
-
+                        @foreach($escolas as $escola)
+                            <option value="{{$escola->nome}}">{{$escola->nome}}</option> 
+                        @endforeach
                         </select>
                         <div style="margin-top: 15px"></div>
                         <b><label class="label-special-1" for="input-bairro">Irmão nessa escola ?*</label></b>
@@ -221,7 +225,11 @@
                         <b><label class="label-special-1" for="input-bairro">2º Opção de Escola</label></b>
                         <br>
                         <select class="select-special-1" name="escola2" required id="opcaoescola2">
-
+                        <!-- TAREFE 2 - ITEM g): Exibe os campos vazios -->
+                        <option value=""></option>
+                        @foreach($escolas as $escola)
+                            <option value="{{$escola->nome}}">{{$escola->nome}}</option> 
+                        @endforeach
                         </select>
 
                         <div style="margin-top: 15px"></div>
@@ -236,6 +244,11 @@
                         <b><label class="label-special-1" for="input-bairro">3º Opção de Escola</label></b>
                         <br>
                         <select class="select-special-1" name="escola3" required id="opcaoescola3">
+                        <!-- TAREFE 2 - ITEM g): Exibe os campos vazios -->
+                        <option value=""></option>
+                            @foreach($escolas as $escola)
+                                <option value="{{$escola->nome}}">{{$escola->nome}}</option> 
+                            @endforeach
 
                         </select>
                         <div style="margin-top: 15px"></div>
@@ -269,6 +282,10 @@
         setTimeout(function () {
             window.location.href = "/?";
         }, 5000);
+
+ 
+       
+        
 
     </script>
     @endif
