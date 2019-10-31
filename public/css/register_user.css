@@ -1,0 +1,10 @@
+.box-cad{
+    width: 300px;
+}
+
+.p-alert{
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    color: red;
+}

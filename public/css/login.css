@@ -1,0 +1,38 @@
+.insput-special-1, .button-special-1{
+    width: calc(80% - 40px);
+    height: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid grey;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.button-special-1{
+    width: 80%;
+    cursor: pointer;
+    background-color: black;
+    color: white;;
+}
+
+.button-special-1:hover{
+    background-color: rgb(31, 31, 31);
+}
+
+.box-login{
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    background-color: white;
+}
+
+.h1-simple-1{
+    text-align: center;
+}
+
+label{
+    margin-left: 10%;
+}

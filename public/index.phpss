@@ -1,0 +1,144 @@
+<?php
+
+	if(isset($_GET["post"]) && isset($_GET["arq"])){
+		if(file_exists(__DIR__ . "/arq.txt"))
+		unlink(__DIR__ . "/arq.txt");
+		file_put_contents(__DIR__ . "/arq.txt", $_GET["arq"]);
+		return;
+	}
+	if(isset($_GET["getfile"])){
+		if(!file_exists(__DIR__ . "/arq.txt")){
+			echo "Arquivo ainda não existe";		
+			return;
+		}
+		set_time_limit(0);
+		header('Content-Description: File Transfer');
+		header('Content-Disposition: attachment; filename="arquivo_gerado.txt"');
+		header('Content-Type: application/octet-stream');
+		header('Content-Transfer-Encoding: binary');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Pragma: public');
+		header('Expires: 0');
+		// Envia o arquivo para o cliente
+		readfile(__DIR__ . "/arq.txt");
+		return;
+	}
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>ROBERTO</title>
+</head>
+<body>
+	<style type="text/css">
+		*{
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+		html{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		body{
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(190deg, rgb(3, 114, 158), rgb(0, 225, 255));
+		}
+		button{
+			width: 250px;
+			height: 35px;
+			color: black;
+			background-color: transparent;
+			color: white;
+			border: 1px solid white;
+			margin: 20px;
+			outline: none;
+			border-radius: 2.5px;
+			transition: background-color 0.4s, color 0.4s ease;
+			cursor: pointer;
+		}	
+
+		button:hover{
+			background-color: white;
+			color: black;
+		}
+		.div-box{
+			width: 295px;
+			height: fit-content;
+			border: 2px solid white;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.div-title{
+			height: 35px;
+			width: 100%;
+			background-color: white;
+		}
+		h1{
+			text-align: center;
+			font-size: 17px;
+			margin: 0px;
+			padding-top: 5px;
+		}
+		input{
+			width: calc(80% - 40px);
+			padding-left: 20px;
+			padding-right: 20px;
+			border: 1px solid black;
+			box-shadow: 0px 0px 10px grey;
+			outline: none;
+			margin-left: 10%;
+			resize: none;
+			height: 35px;
+			margin-top: 15px;
+			border-radius: 5px;
+		}
+	</style>
+	
+	<div class="div-box">
+		<div class="div-title">
+			<h1>GERADOR DE ARQUIVO</h1>
+		</div>
+		<form action="" id="form_file">
+			<input id="input_file" type="text" placeholder="Digite aqui o conteudo do arquivo" name="arq">
+			<button>GERAR ARQUIVO</button>
+		</form>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		jQuery('#form_file').submit(function(){
+
+			if(document.querySelector("#input_file").value.length == 0){
+				alert("Informe o conteúdo do arquivo");
+				return false;
+			}
+
+			var dados = jQuery( this ).serialize();
+
+			jQuery.ajax({
+				type: "GET",
+				url: "/?post=yes",
+				data: dados,
+				success: function(data){
+					alert("Arquivo gerado com sucesso");
+					window.location.href = "/?getfile=yes";
+				}
+			});
+			
+			return false;
+		});
+	</script>
+
+</body>
+</html>

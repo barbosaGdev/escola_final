@@ -1,0 +1,7 @@
+.header-top{
+    width: calc(100% - 20px);
+    height: 130px;
+    background-image: url("/images/header.jpg");
+    overflow: hidden;
+    padding: 10px;
+}

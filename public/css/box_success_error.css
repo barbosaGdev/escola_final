@@ -1,0 +1,36 @@
+.adsdje{
+    display: flex;
+    justify-content: center;
+}
+
+.div-error-bx, .div-success-bx{
+    width: 280px;
+    height: auto;
+    border: 2px solid #9e0b0b;
+    background-color: #d60000;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    top: -320px;
+    transform: translate(-50%);
+    transition: top 0.4s ease;
+}
+
+.div-success-bx{
+    border: 2px solid #23690e;
+    background-color: #1baa3a;
+}
+
+.img-corres{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.p-error-bx, .p-success-bx{
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: white;
+}
