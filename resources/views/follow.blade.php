@@ -44,14 +44,12 @@
                     console.log(data);
                     if(data[0].status == "Pendente")
                         showError("Sua matricula ainda esta pendente, aguarde mais um pouco");
-                    if(data[0].status == "rejeitado")
-                        showError("Infelimente não há vagas nas escolas desejada");
                     if(data[0].status == "Supervisionar")
                         showError("Conclua sua matrícula indo a SEMED NILOPOLIS");
                     if(data[0].status == "reservado")
                         showError("Sua pré matrícula esta cadastrada, compareça a escola: " + data[0].nome_escola + ", para confirmar a matricula");
-                    if(data[0].status == "noCad")
-                        showError("Nenhum candidato cadastrado com esse CPF");
+                    if(data[0].cpf == null || data[0].status == "rejeitado")
+                        showError("O candidato não cadastrou o cpf ou teve sua matrícula rejeitada, favor aguarda na fila da escola em que se inscreveu!");
                     if(data[0].status == "sucesso")
                         showSuccess("Sua matricula foi reservada, por favor, comparecer à SEMED NILOPOLIS para confirmar a vaga o mais rapido possivel! (não se esqueça de levar um documento com foto)");
                 },
