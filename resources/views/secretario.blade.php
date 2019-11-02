@@ -7,12 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/padrao.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Matricula facil</title>
 </head>
 
 <body>
 
     @include("header")
+    @if(isset($_SESSION['user']))
+        <a href="/logout"><button class="button-big darkred">Logout</button></a>
+    @endif
 
     <p class="h1-special-1">Alunos da escola: {{$escola->nome}}</p>
     <div class="container">

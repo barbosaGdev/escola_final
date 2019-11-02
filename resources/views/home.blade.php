@@ -42,7 +42,7 @@
                 </div>
                 <div class="div-input-special-1">
                     <b><label class="label-special-1" for="input-cpf">CPF do Candidato *</label></b>
-                    <input name="cpf" required id="input-cpf" type="text" class="input-special-1"
+                    <input name="cpf" id="input-cpf" type="text" class="input-special-1"
                         placeholder="CPF do candidato">
                 </div>
                 <div class="div-input-special-1">

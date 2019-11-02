@@ -27,6 +27,8 @@ Route::get("success", "Controller@success");
 
 Route::get("login", "Controller@returnViewlogin");
 
+Route::get("logout", "Controller@returnViewLogout");
+
 Route::get("adm", ['middleware' => 'authAdmin', 'uses' => 'Adm@returnViewAdm']);
 
 Route::get("citys", "Adm@returnViewCitys");
@@ -47,15 +49,15 @@ Route::get("cad/user", "Controller@returnViewRegisterUser");
 
 Route::post("add/user", "User@registerUsuario");
 
-Route::post("doLogin", ['middleware' => 'authVerify', 'uses' => 'User@login']);
+Route::post("doLogin", 'User@login');
 
-Route::get("secretario", "User@secretario");
+Route::get("secretario", ['middleware' => 'authAdmin', 'uses' => 'User@secretario']);
 
 Route::get("follow", "User@follow");
 
 Route::post("verificar", "User@verificar");
 
-Route::get("supervisor", "User@supervisor");
+Route::get("supervisor", ['middleware' => 'authAdmin', 'uses' => 'User@supervisor']);
 
 Route::get("show/schools", "User@mostrarEscolas");
 

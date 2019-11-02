@@ -16,7 +16,7 @@ class authAdmin
     public function handle($request, Closure $next)
     {
 
-        if($_SESSION['adm'] == false){
+        if($_SESSION == null){
             return redirect("/login");
         } 
 

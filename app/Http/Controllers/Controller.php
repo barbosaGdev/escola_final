@@ -57,6 +57,11 @@ class Controller extends BaseController
             return "no";
     }
 
+    public function returnViewLogout(){
+        $_SESSION = session_destroy();
+        return redirect("/");
+    }
+
     public function generateXls(){
 
         $html = "";
