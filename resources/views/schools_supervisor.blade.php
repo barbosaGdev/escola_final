@@ -27,6 +27,7 @@
                 <tr>
                     <th>Escola</th>
                     <th>Ação</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,7 @@
                     <tr class="box box-citys" style="margin-bottom: 20px">
                         <td>{{$escola->nome}}</td>
                         <td><a href="/ver/candidatos?id={{$escola->id}}"><button class="btn-confirm">VER CANDIDATOS</button></a></td>
+                        <td><a href="/ver/escola?id={{$escola->id}}"><button class="btn-confirm">EDITAR/VER ESCOLA</button></a></td>
                     </tr>
                 @endforeach
             </tbody>

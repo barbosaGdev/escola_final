@@ -78,6 +78,8 @@ class User extends Controller
         return view('candidato', ["cidades" => $cidades, "escolas" => $escolas, "candidato" => $candidato]);        
     }
 
+   
+
     public function editCandidato(){
         $errors = array();
         $dia;

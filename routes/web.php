@@ -65,6 +65,10 @@ Route::get("ver/candidato", "User@candidato");
 
 Route::post("edit/candidato", "User@editCandidato");
 
+Route::get("ver/escola", "Escola@verEscola");
+
+Route::post("edit/escola", "Escola@returnViewEditarEscola");
+
 Route::get("/delete/candidato", "User@deleteCandidato");
 
 Route::get("vincular", "User@vincular");

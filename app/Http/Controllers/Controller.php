@@ -62,6 +62,7 @@ class Controller extends BaseController
         $html = "";
 
         $candidatos = DB::select("select * from candidatos");
+        $escolas = DB::select("select * from escolas");
 $html .= <<<HTML
 <meta charset='UTF-8'>
         <table>
@@ -78,6 +79,12 @@ $html .= <<<HTML
                     <td>Data de nascimento</td>
                     <td>Celular</td>
                     <td>Status</td>
+                    <td>Matricula Escola 1</td>
+                    <td>Matricula Escola 2</td>
+                    <td>Matricula Escola 3</td>
+                    <td>Total de Pontos Escola 1</td>
+                    <td>Total de Pontos Escola 2</td>
+                    <td>Total de Pontos Escola 3</td>
                 </tr>
             </thead>
             <tbody>
@@ -95,10 +102,41 @@ HTML;
             $html .= "<td>" . $item->CPF_responsavel . "</td>";
             $html .= "<td>" . date("d/m/Y", $item->data_nascimento) . "</td>";
             $html .= "<td>" . $item->cel . "</td>";
-            $html .= "<td>" . $item->status . "</td>";
+            $html .= "<td>" . $item->escola_1 . "</td>";
+            $html .= "<td>" . $item->escola_2 . "</td>";
+            $html .= "<td>" . $item->escola_3 . "</td>";
+            $html .= "<td>" . $item->pontos_escola_1 . "</td>";
+            $html .= "<td>" . $item->pontos_escola_2 . "</td>";
+            $html .= "<td>" . $item->pontos_escola_3 . "</td>";
+
+            
             $html .= "</tr>";
         }
-        $html .= "</tbody></table>";
+        $html .= "</tbody></table><br><br>";
+        $html .= <<<HTML
+        
+        <table>
+        <thead>
+            <tr>
+                <td>ID da Escola</td>
+                <td>Nome da Escola</td>
+                <td>Endereço da Escola</td>
+               
+            </tr>
+        </thead>
+        <tbody>
+HTML;
+
+    foreach($escolas as $item){
+        $html .= "<tr>";
+        $html .= "<td>" . $item->id . "</td>";
+        $html .= "<td>" . $item->nome . "</td>";
+        $html .= "<td>" . $item->endereco . "</td>";
+      
+        
+        $html .= "</tr>";
+    }
+    $html .= "</tbody></table>";
         echo $html;
         header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
         header("Content-Disposition: attachment; filename=relatorio.xls");
