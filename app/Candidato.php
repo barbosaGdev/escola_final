@@ -20,6 +20,11 @@ class Candidato extends Model
         return DB::select("select * from candidatos where escola_1=? OR escola_2=? OR escola_3=? order by nome asc", [$school, $school, $school]);
     }
 
+    static function getCandidatos(){
+        $candidato = DB::select("select * from candidatos");
+        return $candidato;
+    }
+
     static function getCandidatosBySchoolFinal($school){
         $escola = DB::select("select * from escolas where id=?", [$school]);
         if($escola[0]->started == "s")

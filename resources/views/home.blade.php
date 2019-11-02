@@ -208,7 +208,7 @@
                     <div class="div-input-special-1" style="margin-top: 15px">
                         <b><label class="label-special-1" for="input-bairro">1º Opção de Escola</label></b>
                         <br>
-                        <select class="select-special-1" name="escola1" required id="opcaoescola1">
+                        <select class="select-special-1" name="escola1" novalidate id="opcaoescola1">
                         @foreach($escolas as $escola)
                             <option value="{{$escola->nome}}">{{$escola->nome}}</option> 
                         @endforeach
@@ -224,7 +224,7 @@
                     <div class="div-input-special-1">
                         <b><label class="label-special-1" for="input-bairro">2º Opção de Escola</label></b>
                         <br>
-                        <select class="select-special-1" name="escola2" required id="opcaoescola2">
+                        <select class="select-special-1" name="escola2" novalidate id="opcaoescola2">
                         <!-- TAREFE 2 - ITEM g): Exibe os campos vazios -->
                         <option value=""></option>
                         @foreach($escolas as $escola)
@@ -243,7 +243,7 @@
                     <div class="div-input-special-1">
                         <b><label class="label-special-1" for="input-bairro">3º Opção de Escola</label></b>
                         <br>
-                        <select class="select-special-1" name="escola3" required id="opcaoescola3">
+                        <select class="select-special-1" name="escola3" novalidate id="opcaoescola3" >
                         <!-- TAREFE 2 - ITEM g): Exibe os campos vazios -->
                         <option value=""></option>
                             @foreach($escolas as $escola)

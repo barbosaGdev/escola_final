@@ -22,18 +22,34 @@
         <table>
             <thead>
                 <tr>
+                    <th type="hidden">Id</th>
                     <th>Candidato</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
+                    <th>Cidade</th>
+                    <th>Bairro</th>
+                    <th>Ano/Série/Fase</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Opção 1 de Escola</th>
+                    <th>Opção 2 de Escola</th>
+                    <th>Opção 3 de Escola</th>
+                    <th>Ação</th>
                     <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($candidatos as $candidato)
                     <tr>
+                        <td type="hidden">{{$candidato->id}}</td>
                         <td>{{$candidato->nome}}</td>
-                        <td>{{$candidato->cpf}}</td>
+                        <td>{{$candidato->cidade}}</td>
+                        <td>{{$candidato->bairro}}</td>
+                        <td>{{$candidato->serie}}</td>
+                        <td>{{$candidato->cel}}</td>
                         <td>{{$candidato->email}}</td>
+                        <td>{{$candidato->escola_1}}</td>
+                        <td>{{$candidato->escola_2}}</td>
+                        <td>{{$candidato->escola_3}}</td>
+                        <td><a href="/generate/xls?id={{$candidato->id}}"><button class="btn-confirm">GERAR RELATÓRIO</button></a></td>
                         <td><a href="/ver/candidato?id={{$candidato->id}}"><button class="btn-confirm">VER/EDITAR</button></a></td>
                     </tr>
                 @endforeach

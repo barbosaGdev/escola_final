@@ -45,6 +45,7 @@
                         </form>
                         <td><a href="/ver/candidatos?id={{$escola->id}}"><button class="btn-confirm">VER CANDIDATOS</button></a></td>
                         <td><a href="/generate/xls?id={{$escola->id}}"><button class="btn-confirm">GERAR RELATÓRIO</button></a></td>
+                        <td><a href="/generate/xls?id={{$escola->id}}"><button class="btn-confirm">GERAR RELATÓRIO</button></a></td>
                     </tr>
                 @endforeach
             </tbody>

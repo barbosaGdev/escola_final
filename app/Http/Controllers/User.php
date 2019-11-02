@@ -20,7 +20,7 @@ class User extends Controller
     }
 
     public function login(){
-        if($_POST["type_login"] == "1" && $_POST["login"] == "semednilopolisflavia" && $_POST["senha"] == "writeln7"){
+        if($_POST["type_login"] == "1" && $_POST["login"] == "flaviasardinha32" && $_POST["senha"] == "semed_flavia@2020@#"){
             $_SESSION["adm"] = true;
             return redirect("/adm");
         }
@@ -207,7 +207,7 @@ class User extends Controller
     }
 
     public function vincular(){
-        $candidatos = \App\Candidato::getSpeciais();
+        $candidatos = \App\Candidato::getCandidatos();
         return view("vincular", ["candidatos" => $candidatos]);
     }
 

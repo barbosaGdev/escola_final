@@ -18,7 +18,7 @@
     @include("options-1");
 
     <div class="box box-login">
-        <form action="/login" method="POST">
+        <form action="/doLogin" method="POST">
             <h1 class="h1-simple-1 p-t-20">Login</h1>
             <input class="insput-special-1 m-b-15" required name="login" type="text" placeholder="Login">
             <input value="" class="insput-special-1 m-b-15" required name="senha" type="password" placeholder="Senha" >

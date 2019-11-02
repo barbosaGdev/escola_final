@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 
 class Controller extends BaseController
@@ -60,12 +61,13 @@ class Controller extends BaseController
 
         $html = "";
 
-        $candidatos = DB::select("select * from candidatos where escola_1=? OR escola_2=? OR escola_3=?", [$_GET["id"], $_GET["id"], $_GET["id"]]);
+        $candidatos = DB::select("select * from candidatos");
 $html .= <<<HTML
 <meta charset='UTF-8'>
         <table>
             <thead>
                 <tr>
+                    <td>ID do candidato</td>
                     <td>Nome do candidato</td>
                     <td>CPF</td>
                     <td>RG</td>
@@ -83,6 +85,7 @@ HTML;
 
         foreach($candidatos as $item){
             $html .= "<tr>";
+            $html .= "<td>" . $item->id . "</td>";
             $html .= "<td>" . $item->nome . "</td>";
             $html .= "<td>" . $item->cpf . "</td>";
             $html .= "<td>" . $item->rg . "</td>";
