@@ -13,10 +13,14 @@
     <title>Matricula facil</title>
 </head>
 
-<body>
+<body onload="abrirCronograma();">
 
     @include("header")
+    
     @include("options")
+
+    @include("popUpCronograma")
+
 
     <div class="div-content-1" id="content1">
         <div class="flex-left">

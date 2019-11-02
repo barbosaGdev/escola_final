@@ -34,6 +34,7 @@
                     <th>Opção 3 de Escola</th>
                     <th>Ação</th>
                     <th>Ação</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
                         <td>{{$candidato->escola_3}}</td>
                         <td><a href="/generate/xls?id={{$candidato->id}}"><button class="btn-confirm">GERAR RELATÓRIO</button></a></td>
                         <td><a href="/ver/candidato?id={{$candidato->id}}"><button class="btn-confirm">VER/EDITAR</button></a></td>
+                        <td><a href="/delete/candidato?id={{$candidato->id}}"><button class="btn-cancel">EXCLUIR</button></a></td>
                     </tr>
                 @endforeach
             </tbody>

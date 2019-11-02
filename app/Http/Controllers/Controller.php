@@ -107,6 +107,7 @@ HTML;
             $html .= "<td>" . $item->CPF_responsavel . "</td>";
             $html .= "<td>" . date("d/m/Y", $item->data_nascimento) . "</td>";
             $html .= "<td>" . $item->cel . "</td>";
+            $html .= "<td>" . $item->status . "</td>";
             $html .= "<td>" . $item->escola_1 . "</td>";
             $html .= "<td>" . $item->escola_2 . "</td>";
             $html .= "<td>" . $item->escola_3 . "</td>";
@@ -161,6 +162,10 @@ HTML;
             return "Nenhum candidato com esse ID, confira a URL";
         else
             return redirect("/files/" . $candidatos[0]->laudo);
+    }
+
+    public function returnViewPopUp() {
+        return view('popUpCronograma');
     }
 
 }

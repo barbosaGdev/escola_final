@@ -1,4 +1,4 @@
-.button-big{
+.button-big {
     min-width: 200px;
     height: 100px;
     border-width: 0px;
@@ -12,31 +12,31 @@
     margin-right: 10px;
 }
 
-.darkred{
+.darkred {
     background-color: rgb(180, 5, 5);
 }
 
-.darkred:hover{
+.darkred:hover {
     background-color: rgb(197, 45, 45);
 }
 
-.darkblue{
+.darkblue {
     background-color: rgb(17, 46, 88);
 }
 
-.darkblue:hover{
+.darkblue:hover {
     background-color: rgb(39, 69, 112);
 }
 
-.darkyellow{
+.darkyellow {
     background-color: rgb(248, 182, 0);
 }
 
-.darkyellow:hover{
+.darkyellow:hover {
     background-color: rgb(248, 223, 0);
 }
 
-.div-content-1{
+.div-content-1 {
     width: 80%;
     margin-left: 10%;
     height: 50px;
@@ -49,17 +49,17 @@
     overflow: hidden;
 }
 
-.div-content-2{
+.div-content-2 {
     width: 100%;
     margin: 0px;
 }
 
-.p-option{
+.p-option {
     margin-left: 20px;
     display: inline;
 }
 
-.image-arrow-option{
+.image-arrow-option {
     width: 15px;
     height: 15px;
     margin-top: 17px;
@@ -69,8 +69,60 @@
     transition: transform 0.4s ease;
 }
 
-.label-radio{
+.label-radio {
     font-family: "Roboto Condensed", sans-serif;
 }
 
 
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 1% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
