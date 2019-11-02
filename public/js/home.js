@@ -60,6 +60,23 @@ function changeDeficiencia(def) {
         document.querySelector("#anexoDef").removeAttribute("disabled");
         document.querySelector("#input-deficiencia").value = "";
         document.querySelector(".div-escola-to-hide").style.display = 'none'; // TAREFA 2 - ITEM b): Problema com NEE resolvido, está ocultando caso seja deficiente
+        document.querySelector(".select-special-1").removeAttribute("disabled");
+        document.querySelector(".select-special-1").removeAttribute("disabled");
+        document.querySelector("#escolasim1").removeAttribute("disabled");
+        document.querySelector("#escolasim1").removeAttribute("disabled");
+        document.querySelector("#escolasim2").removeAttribute("disabled");
+        document.querySelector("#escolasim2").removeAttribute("disabled");
+        document.querySelector("#escolasim3").removeAttribute("disabled");
+        document.querySelector("#escolasim3").removeAttribute("disabled");
+        document.querySelector("#escolasim3").removeAttribute("disabled");
+        document.querySelector("#opcaoescola1").removeAttribute("disabled");
+        document.querySelector("#opcaoescola2").removeAttribute("disabled");
+        document.querySelector("#opcaoescola3").removeAttribute("disabled");
+
+
+
+
+
     } else {
         $('#anexoDef').val("");
         document.querySelector("#input-deficiencia").removeAttribute("disabled");

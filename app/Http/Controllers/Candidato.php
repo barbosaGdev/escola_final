@@ -117,22 +117,22 @@ class Candidato extends Controller
             
             $pontos = 0;
             if($_POST["nis_"] == "1")
-                $pontos += 1;
-            if(strtoupper($_POST["cidade"]) == "NILOPOLIS" || strtoupper($_POST["cidade"]) == "NILÓPOLIS")
-                $pontos += 6;
+                $pontos = $pontos + 1;
+            if($_POST["cidade"] == "Nilópolis" )
+                $pontos = $pontos + 6;
             if($_POST["deficiencia_radio"] == "1")
-                $pontos += 2;
+                $pontos = $pontos + 2;
 
             $user->pontos_escola_1 = $pontos;
             $user->pontos_escola_2 = $pontos;
             $user->pontos_escola_3 = $pontos;
 
             if($user->irmao_na_escola1 == "1")
-                $user->pontos_escola_1 += 1;
+                $user->pontos_escola_1 = $user->pontos_escola_1 + 1;
             if($user->irmao_na_escola2 == "1")
-                $user->pontos_escola_2 += 1;
+                $user->pontos_escola_2 = $user->pontos_escola_1;
             if($user->irmao_na_escola3 == "1")
-                $user->pontos_escola_3 += 1;
+                $user->pontos_escola_3 += $user->pontos_escola_1 + 1;
 
             if(((time() - strtotime("$ano-$mes-$dia")) > (31536000*15)) && ((time() - strtotime("$ano-$mes-$dia")) < (31536000*18)))
                 $user->status = "Supervisionar";                
